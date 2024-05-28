@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'ec2-jenkins-agent'
+        }
+    }
 
     stages {
         stage('Hello') {
