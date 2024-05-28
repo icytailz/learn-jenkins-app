@@ -7,5 +7,19 @@ pipeline {
                 echo 'Hello World'
             }
         }
+
+        stage('Docker') {
+          agent {
+            docker {
+                image 'node:18-alpine'
+            }
+          }
+            steps {
+                sh '''
+                    docker --version
+                    npm --version
+                '''
+            }
+        }
     }
 }
